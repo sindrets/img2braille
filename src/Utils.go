@@ -20,7 +20,7 @@ func WriteBmpImage(img *image.RGBA, path string) {
 
     subimg := img.SubImage(img.Bounds())
 
-    bmp.Encode(outputFile, subimg)
+    err = bmp.Encode(outputFile, subimg)
     if err != nil {
         println("Failed to encode image!")
     }
@@ -75,6 +75,6 @@ func Clamp(value int, min int, max int) int {
     return value
 }
 
-func Typeof(v interface{}) string {
+func Typeof(v any) string {
     return reflect.TypeOf(v).String()
 }
